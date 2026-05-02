@@ -45,6 +45,15 @@ def format_date(date_str):
         return None
 
 def get_date_range(start_str, end_str):
+    """
+    Finds all of the dates within the provided range.
+
+    args:
+        start_str: str, representation of the starting date.
+        end_str: str, representation of the ending date.
+    returns:
+        list of date strings within the range, empty arr if an error occured.
+    """
     try:
         start_date = datetime.strptime(start_str, "%Y-%m-%d").date()
         end_date = datetime.strptime(end_str, "%Y-%m-%d").date()
