@@ -172,23 +172,6 @@ def clean_roster_data(roster, team_ids):
 
     return players
 
-def get_shot_data(data):
-    """
-    Iterates over plays and returns only shots.
-
-    args:
-        data: dict, every play attributed to a game.
-    returns:
-        dict, every shot attributed to a game.
-    """
-    shots = []
-
-    for p in data:
-        if p.get("typeDescKey") in SHOT_TYPES:
-            shots.append(p)
-
-    return shots
-
 def get_play_data(data, categories):
     """
     Generalized method to find plays within the categories.
@@ -212,7 +195,7 @@ def clean_shot_data(shots, teams, roster):
     Extracts the required fields from a shot to prepare for storage.
 
     args:
-        shots: dict, shots returned from get_shot_data.
+        shots: dict, shots returned from get_play_data.
         teams: array, contains 2 dicts representing teams.
         roster: dict, contains participating players for a game.
     returns:
